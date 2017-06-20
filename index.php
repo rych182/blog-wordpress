@@ -11,120 +11,50 @@
 				</div>
 
 				<div class="row posts">
+					<!-- Si tenemos artículos se ejecutara el código de while hasta the_post,
+					mientras que haya artículos vamos a ir cargando un artículo-->
+					<?php if ( have_posts() ) : while (have_posts()) :the_post();?>
 					<article class="col-md-6 post">
 						<div class="contenedor">
 							<div class="thumb">
 								<a href="#">
-									<img src="<?php bloginfo('template_url'); ?>/img/1.jpg" width="700" alt="">
+									<!--El the_post_thumbnail ya nos esta agregando una imagen-->
+									<!--El codigo quiere decir que si 'has_post_thumbnail' tiene una imagen, me traeras la imagen
+									con la medida de 'homepage-thumb'-->
+									<?php if (has_post_thumbnail() ) { the_post_thumbnail( 'homepage-thumb' ); }?>
 								</a>
 							</div>
 							<div class="info">
-								<h3 class="titulo"><a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a></h3>
-								<p class="fecha">5 de Junio del 2017</p>
-								<p class="extracto">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe, accusamus et totam nihil distinctio voluptatem delectus possimus numquam tenetur natus!.</p>
+								<h3 class="titulo">
+									<!--Con esto php te trae el titulo-->
+									<!--El permalink es el enlace de nuestro artículo-->
+									<!--get_the_date le pone fechas a todos, por que si solo pones the_date te trae una fecha y a los demas
+									 artículos no se los pone y descuadra todo, es IMPORTANTE PONER EL GET Y EL ECHO-->
+									<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+								</h3>
+								<p class="fecha"><?php echo get_the_date(); ?></p>
+								<div class="extracto"><?php echo the_excerpt(); ?></div>
 								<div class="categorias">
-									<a href="#">HTML</a>
-									<a href="#">CSS</a>	
+									<?php the_category();?>
 								</div>
 							</div>
 						</div>
 					</article>
-
+					<!--Queremos terminar el ciclo, entonces -->
+					<?php endwhile; else : ?>
+					<!--Este article sde abajo se va a ejecutar si es que no tenemos artículos en la página principal-->
 					<article class="col-md-6 post">
 						<div class="contenedor">
-							<div class="thumb">
-								<a href="#">
-									<img src="<?php bloginfo('template_url'); ?>/img/2.jpg" width="700" alt="">
-								</a>
-							</div>
 							<div class="info">
-								<h3 class="titulo"><a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a></h3>
-								<p class="fecha">5 de Junio del 2017</p>
-								<p class="extracto">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe, accusamus et totam nihil distinctio voluptatem delectus possimus numquam tenetur natus!.</p>
-								<div class="categorias">
-									<a href="#">HTML</a>
-									<a href="#">CSS</a>	
-								</div>
+								<h3 class="titulo">
+									El post que buscas no existe.
+								</h3>
+								<p class="fecha"><?php echo get_the_date(); ?></p>
+								<div class="extracto"><p>Revisa que la URL que hayas ingresado sea correcta</p></div>
 							</div>
 						</div>
 					</article>
-
-					<article class="col-md-6 post">
-						<div class="contenedor">
-							<div class="thumb">
-								<a href="#">
-									<img src="<?php bloginfo('template_url'); ?>/img/3.jpg" width="700" alt="">
-								</a>
-							</div>
-							<div class="info">
-								<h3 class="titulo"><a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a></h3>
-								<p class="fecha">5 de Junio del 2017</p>
-								<p class="extracto">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe, accusamus et totam nihil distinctio voluptatem delectus possimus numquam tenetur natus!.</p>
-								<div class="categorias">
-									<a href="#">HTML</a>
-									<a href="#">CSS</a>	
-								</div>
-							</div>
-						</div>
-					</article>
-
-					<article class="col-md-6 post">
-						<div class="contenedor">
-							<div class="thumb">
-								<a href="#">
-									<img src="<?php bloginfo('template_url'); ?>/img/4.jpg" width="700" alt="">
-								</a>
-							</div>
-							<div class="info">
-								<h3 class="titulo"><a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a></h3>
-								<p class="fecha">5 de Junio del 2017</p>
-								<p class="extracto">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe, accusamus et totam nihil distinctio voluptatem delectus possimus numquam tenetur natus!.</p>
-								<div class="categorias">
-									<a href="#">HTML</a>
-									<a href="#">CSS</a>	
-								</div>
-							</div>
-						</div>
-					</article>
-
-					<article class="col-md-6 post">
-						<div class="contenedor">
-							<div class="thumb">
-								<a href="#">
-									<img src="<?php bloginfo('template_url'); ?>/img/5.jpg" width="700" alt="">
-								</a>
-							</div>
-							<div class="info">
-								<h3 class="titulo"><a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a></h3>
-								<p class="fecha">5 de Junio del 2017</p>
-								<p class="extracto">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe, accusamus et totam nihil distinctio voluptatem delectus possimus numquam tenetur natus!.</p>
-								<div class="categorias">
-									<a href="#">HTML</a>
-									<a href="#">CSS</a>	
-								</div>
-							</div>
-						</div>
-					</article>
-
-					<article class="col-md-6 post">
-						<div class="contenedor">
-							<div class="thumb">
-								<a href="#">
-									<img src="<?php bloginfo('template_url'); ?>/img/6.jpg" width="700" alt="">
-								</a>
-							</div>
-							<div class="info">
-								<h3 class="titulo"><a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a></h3>
-								<p class="fecha">5 de Junio del 2017</p>
-								<p class="extracto">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe, accusamus et totam nihil distinctio voluptatem delectus possimus numquam tenetur natus!.</p>
-								<div class="categorias">
-									<a href="#">HTML</a>
-									<a href="#">CSS</a>	
-								</div>
-							</div>
-						</div>
-					</article>
-
+					<?php endif; ?>
 				</div>
 				<section class="row paginacion">
 					<div class="col-md-12">

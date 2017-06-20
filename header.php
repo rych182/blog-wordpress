@@ -43,14 +43,12 @@
 			<nav class="menu">
 				<div class="container">
 					<div class="row">
-						<ul class="col-md-12">
-							<li><a href="#">HTML</a></li>
-							<li><a href="#">CSS</a></li>
-							<li><a href="#">Javascript</a></li>
-							<li><a href="#">JQuery</a></li>
-							<li><a href="#">Git</a></li>
-							<li><a href="#">PHP</a></li>
-						</ul>
+						<?php wp_nav_menu(array(
+						'container' => false,
+						'menu_class' => '',
+						'items_wrap' => '<ul class="col-md-12">%3$s</ul>',
+						'theme_location' => 'menu-top' 
+						)); ?>
 					</div>
 				</div>
 			</nav>

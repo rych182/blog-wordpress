@@ -11,12 +11,12 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12">
-						<ul>
-							<li><a href="#">Inicio</a></li>
-							<li><a href="#">Acerca de</a></li>
-							<li><a href="#">Contacto</a></li>
-							<li><a href="#">Terminos y condiciones</a></li>
-						</ul>
+						<?php wp_nav_menu(array(
+						'container' => false,
+						'menu_class' => '',
+						'items_wrap' => '<ul class="col-md-12">%3$s</ul>',
+						'theme_location' => 'menu-footer' 
+						)); ?>
 					</div>
 				</div>
 			</div>

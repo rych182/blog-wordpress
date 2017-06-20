@@ -4,13 +4,7 @@
 		<div class="row">
 
 			<section class="main col-md-8">
-				<div class="row titulo-seccion">
-					<div class="col-md-12">
-						<h3>Lo mas reciente</h3>
-					</div>
-				</div>
-
-				<div class="row posts">
+				<div class="row single-post">
 					<!-- Si tenemos artículos se ejecutara el código de while hasta the_post,
 					mientras que haya artículos vamos a ir cargando un artículo-->
 					<?php if ( have_posts() ) : while (have_posts()) :the_post();?>

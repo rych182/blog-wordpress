@@ -11,4 +11,32 @@
 		'menu-top' => 'Menu Principal',
 		'menu-footer' => 'Menu Footer'
 	));
+
+//Una función que nos permite registrar una nueva sección en la cual
+//podemos poner widgets
+//Las clases, son las mismas que están en nuestro archivo sidebar.php
+//Con todo esto, nos aparece la pestaña de WIDGETS en el menú de apariencia.
+register_sidebar(array(
+	'name' => 'Header',
+	'before_widget' => '<div>',
+	'after_widget' => '</div>',
+	'before_tittle' => '<h3>',
+	'after_tittle' => '</h3>', 
+	));
+//Wordpress nos va a agregar el titulo que es nuesto "h3" y el widget
+register_sidebar(array(
+	'name' => 'Sidebar',
+	'before_widget' => '<div class="widget"><div class="titulo-seccion">',
+	'after_widget' => '</div></div>',
+	'before_tittle' => '<h3>',
+	'after_tittle' => '</h3>', 
+	));
+
+register_sidebar(array(
+	'name' => 'Footer',
+	'before_widget' => '<div>',
+	'after_widget' => '</div>',
+	'before_tittle' => '<h3>',
+	'after_tittle' => '</h3>', 
+	));
 ?>

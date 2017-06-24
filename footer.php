@@ -1,12 +1,5 @@
 <footer>
-		<div class="ad container hidden-xs">
-			<div class="row">
-				<div class="col-md-12">
-					<img src="<?php bloginfo('template_url'); ?>/img/ad.jpg" alt="">
-				</div>
-			</div>
-		</div>
-		
+		<?php if ( !function_exists('dynamic_sidebar') OR !dynamic_sidebar('Footer') ): endif; ?>
 		<nav class="menu">
 			<div class="container">
 				<div class="row">
@@ -31,6 +24,8 @@
 				</div>
 			</div>
 		</div>
+
+		
 	</footer>
 
 	<?php wp_footer(); ?>

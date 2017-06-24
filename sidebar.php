@@ -30,15 +30,6 @@
 		</div>
 	</div>
 
-	<div class="widget ad">
-		<div class="contenedor-ad">
-			<a href="#">
-				<img src="<?php bloginfo('template_url'); ?>/img/ad2.jpg" alt="Anuncio">
-				<!--Puedo agregar mas imagenes, menús etc
-				Cuando esto se convierta a Wordpress 
-				vamos a poder decidir que widgets queremos
-				usar y cuales no -->
-			</a>
-		</div>
-	</div>
+	<!--Si la funcion de sidebar existe o si tenemos un sidebar simplemente lo ejecutas-->
+	<?php if ( !function_exists('dynamic_sidebar') OR !dynamic_sidebar('Sidebar') ): endif; ?>
 </aside>
